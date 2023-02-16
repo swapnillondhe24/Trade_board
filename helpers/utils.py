@@ -1,8 +1,8 @@
 import json
-import os
+import csv
 from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
-import csv
+import os
 
 
 def getApi():
