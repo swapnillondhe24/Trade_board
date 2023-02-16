@@ -26,7 +26,7 @@ class TradeInformation:
         self.price = price
         
     def update_metrics(self,symbol, trade_results):
-        current_price = api.get_last_trade(symbol).price
+        current_price = api.get_latest_trade(symbol).price
         position = api.get_position(symbol)
         self.realized_pnl = 0
         for trade in trade_results:
@@ -43,10 +43,16 @@ class TradeInformation:
             'return_percent': self.return_percent
         }
         
-        with open('../resources/data.csv', 'w+', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=['Realized_PNL', 'UnRealized_PNL', 'Total_PNL','return_percentage'])
-            writer.writeheader()
-            writer.writerows(data)
+        try:
+            with open('../resources/data.csv', 'w+', newline='') as file:
+                writer = csv.writer(file)
+            # writer.writeheader()
+                writer.writerows(data)
+        except:
+            with open('./resources/data.csv', 'w+', newline='') as file:
+                writer = csv.writer(file)
+            # writer.writeheader()
+                writer.writerows(data)
         return data
         
     def get_metrics(self):
@@ -58,7 +64,22 @@ class TradeInformation:
             'realized_pnl': self.realized_pnl,
             'unrealized_pnl': self.unrealized_pnl
         }
+        
+    
 
         
     def __str__(self):
         return f'Symbol: {self.symbol}\nTime: {self.time}\nShares: {self.shares}\nPrice: {self.price}'
+
+
+import json
+def get_all_positions(apil = api):
+    positions = apil.list_positions()
+    positions_list = [pos.__dict__ for pos in positions]
+    positions_json = json.dumps(positions_list)
+    
+    return(positions_json)
+
+print(api.get_order("ec5bfc80-5cc8-4e14-bf3c-d2aa13913d70"))
+    
+    

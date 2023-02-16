@@ -3,30 +3,31 @@ import alpaca_trade_api as tradeapi
 import os
 import pandas as pd
 import numpy as np
-from dotenv import load_dotenv
-try:
-    from TradeInformation import TradeInformation
-    
-except:
-    from helpers.TradeInformation import TradeInformation
-    
 import logging
 from multiprocessing import Process
 import multiprocessing
 import time
 import subprocess
 
+try:
+    from TradeInformation import TradeInformation
+    
+except:
+    from helpers.TradeInformation import TradeInformation
+    
+
+try:
+    from utils import getApi, write_order_to_csv
+except:
+    from helpers.utils import getApi,write_order_to_csv
+
+api = getApi()
+
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
-
-load_dotenv()
-
-API_KEY_ID = os.getenv('API_KEY_ID')
-SECRET_ACCESS_KEY = os.getenv('SECRET_ACCESS_KEY')
-
-api = tradeapi.REST(API_KEY_ID, SECRET_ACCESS_KEY, base_url='https://paper-api.alpaca.markets' ,api_version='v2')
   
 trade_info = TradeInformation()
+
 
 def start_dashboard():
     try:
@@ -55,13 +56,19 @@ def crossover_strategy(data):
     return signals
 
 
-# def get_bars_data(symbol, timeframe,limit=None):
-#     bars = api.get_bars(symbol, timeframe, limit=200,adjustment='raw')
+
+def submit_order_with_strategy(symbol, qty, side, type, time_in_force, strategy):
+    order = api.submit_order(
+        symbol=symbol,
+        qty=qty,
+        side=side,
+        type=type,
+        time_in_force=time_in_force
+    )
+    filename = "../resources/"+str(strategy.__name__)
+    write_order_to_csv(order,filename)
     
-#     df = pd.DataFrame(bars)
-#     print(df.columns.values)
-#     # df = df.set_index('t')
-#     return df
+    return order
 
 
 
@@ -75,31 +82,24 @@ def live_trading(symbol, strategy_func=crossover_strategy,q=None):
         signal = signals['signal'][-1]
         
         qty = 100
+        # signal = 0.0
         if signal == 1.0:
+        # if True:
             # qty = int(int(api.get_account().cash) / api.get_latest_trade(symbol).price)
-            order = api.submit_order(
-                symbol=symbol,
-                qty=qty,
-                side='buy',
-                type='market',
-                time_in_force='ioc'
-            )
+            order = submit_order_with_strategy(symbol, qty, 'buy', 'market', 'gtc', strategy_func)
+            print(order)
             trade_info.update_trade(symbol, order.submitted_at, qty, order.filled_avg_price)
             q.put(trade_info)
+            # break
         elif signal == 0.0:
             # qty = api.get_position(symbol).qty
-            order = api.submit_order(
-                symbol=symbol,
-                qty=qty,
-                side='sell',
-                type='market',
-                time_in_force='ioc'
-            )
-            trade_info.update_trade(symbol, api.get_last_trade(symbol).time, qty, api.get_last_trade(symbol).price)
+            order = submit_order_with_strategy(symbol, qty, 'sell', 'market', 'gtc', strategy_func)
+            trade_info.update_trade(symbol, order.submitted_at, qty, api.get_latest_trade(symbol).price)
             q.put(trade_info)
+        
         elif signal ==0.5:
-            print("Holding for now")
-            trade_info.update_trade("symbol","nothing here", "qty", "api.get_last_trade(symbol).price")
+            # print("Holding for now")
+            # trade_info.update_trade("symbol","nothing here", "qty", "api.get_last_trade(symbol).price")
             time.sleep(1)
             continue
         time.sleep(10)
@@ -120,7 +120,9 @@ def run_processes(symbol,strategy_func=crossover_strategy):
         trade_result = trade_results.get()
         yield trade_result
         time.sleep(2)
-        
+
+
+# print(live_trading("AAPL"))
 # if __name__ == '__main__':
 #     while True:
 #         gen = run_processes("AAPL")
