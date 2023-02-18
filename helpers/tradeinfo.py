@@ -11,7 +11,6 @@ import subprocess
 
 try:
     from TradeInformation import TradeInformation
-    
 except:
     from helpers.TradeInformation import TradeInformation
     
@@ -24,7 +23,7 @@ except:
 api = getApi()
 
 
-logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s %(message)s', level=logging.DEBUG)
   
 trade_info = TradeInformation()
 
@@ -87,7 +86,7 @@ def live_trading(symbol, strategy_func=crossover_strategy,q=None):
         # if True:
             # qty = int(int(api.get_account().cash) / api.get_latest_trade(symbol).price)
             order = submit_order_with_strategy(symbol, qty, 'buy', 'market', 'gtc', strategy_func)
-            print(order)
+            # print(order)
             trade_info.update_trade(symbol, order.submitted_at, qty, order.filled_avg_price)
             q.put(trade_info)
             # break

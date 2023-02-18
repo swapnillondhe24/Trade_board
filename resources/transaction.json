@@ -1,1 +1,69 @@
-{"transaction": [{"Symbol": "AAPL", "Qty": 2.0, "Price": 131.85, "Time": "2022-12-26 07:34:08", "Status": "accepted", "Type": "buy", "order ID": "698f3e71-1206-4c9a-aeb3-15f5fd9e12c5"}, {"Symbol": "AAPL", "Qty": 1.0, "Price": 130.85, "Time": "2022-12-26 07:34:23", "Status": "accepted", "Type": "sell", "order ID": "85fd9cf5-dc68-4f59-b1ac-52b96932444d"}, {"Symbol": "AAPL", "Qty": 2.0, "Price": 133.85, "Time": "2022-12-26 07:34:38", "Status": "accepted", "Type": "buy", "order ID": "49e18083-2d5e-4265-a185-44e501e1d4e1"}, {"Symbol": "AAPL", "Qty": 1.0, "Price": 135.79, "Time": "2022-12-26 07:34:53", "Status": "accepted", "Type": "sell", "order ID": "85fd9cf5-dc68-4f59-b1ac-52b96932444d"}]}
+{
+  "transaction": [
+    {
+      "order ID": "983e339e-e5e2-4437-beac-a89a70a13cde",
+      "Symbol": "AAPL",
+      "Qty": "100",
+      "filled_qty": "100",
+      "Type": "buy",
+      "side": "buy",
+      "time_in_force": "gtc",
+      "Status": "filled",
+      "Price": "151.82",
+      "Time": "2023-02-17T14:50:01.866007119+00:00",
+      "updated_at": "2023-02-17T14:50:02.071345858+00:00"
+    },
+    {
+      "order ID": "6081d45b-e050-4261-a90d-95c9346720f2",
+      "Symbol": "AAPL",
+      "Qty": "100",
+      "filled_qty": "100",
+      "Type": "buy",
+      "side": "buy",
+      "time_in_force": "gtc",
+      "Status": "filled",
+      "Price": "151.8513",
+      "Time": "2023-02-17T14:52:36.172435685+00:00",
+      "updated_at": "2023-02-17T14:52:38.050691733+00:00"
+    },
+    {
+      "order ID": "e0f81f21-e0d8-40a4-95e7-5c40172b5370",
+      "Symbol": "AAPL",
+      "Qty": "100",
+      "filled_qty": "100",
+      "Type": "buy",
+      "side": "buy",
+      "time_in_force": "gtc",
+      "Status": "filled",
+      "Price": "151.871",
+      "Time": "2023-02-17T14:52:46.618538906+00:00",
+      "updated_at": "2023-02-17T14:52:48.844911637+00:00"
+    },
+    {
+      "order ID": "8bab27e9-7a06-4615-8d7f-0fb8cf97dacf",
+      "Symbol": "AAPL",
+      "Qty": "100",
+      "filled_qty": "100",
+      "Type": "buy",
+      "side": "buy",
+      "time_in_force": "gtc",
+      "Status": "filled",
+      "Price": "151.9",
+      "Time": "2023-02-17T14:52:57.089355863+00:00",
+      "updated_at": "2023-02-17T14:52:58.030720926+00:00"
+    },
+    {
+      "order ID": "4c862b0d-faac-41ea-b62d-230c38bff7f8",
+      "Symbol": "AAPL",
+      "Qty": "100",
+      "filled_qty": "100",
+      "Type": "sell",
+      "side": "sell",
+      "time_in_force": "gtc",
+      "Status": "filled",
+      "Price": "151.81",
+      "Time": "2023-02-17T14:53:55.060391855+00:00",
+      "updated_at": "2023-02-17T14:53:56.093833419+00:00"
+    }
+  ]
+}

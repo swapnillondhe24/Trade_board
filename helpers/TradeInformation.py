@@ -2,6 +2,7 @@ try:
     from utils import getApi
 except:
     from helpers.utils import getApi
+# from utils import getApi
 
 api = getApi()
 
@@ -80,6 +81,6 @@ def get_all_positions(apil = api):
     
     return(positions_json)
 
-print(api.get_order("ec5bfc80-5cc8-4e14-bf3c-d2aa13913d70"))
+print(api.get_order("983e339e-e5e2-4437-beac-a89a70a13cde"))
     
     

@@ -27,7 +27,21 @@ def write_order_to_csv(order, filename):
         if not file_exists:
             writer.writeheader()
             
-        writer.writerow({
+        try:
+            writer.writerow({
+            'order_id': order['id'],
+            'symbol': order['symbol'],
+            'qty': order['qty'],
+            'side': order['side'],
+            'type': order['type'],
+            'time_in_force': order['time_in_force'],
+            'submitted_at': str(order['submitted_at']),
+            'filled_at': str(order['filled_at']) if order['filled_at'] else '',
+            'filled_qty': order['filled_qty'] if order['filled_qty'] else 0,
+            'filled_avg_price': order['filled_avg_price']
+            })
+        except:
+            writer.writerow({
             'order_id': order.id,
             'symbol': order.symbol,
             'qty': order.qty,
@@ -36,11 +50,13 @@ def write_order_to_csv(order, filename):
             'time_in_force': order.time_in_force,
             'submitted_at': str(order.submitted_at),
             'filled_at': str(order.filled_at) if order.filled_at else '',
-            'filled_qty': order.filled_qty,
+            'filled_qty': order.filled_qty if order.filled_qty else 0,
             'filled_avg_price': order.filled_avg_price
-        })
+            })
         
-        write_order_details_to_json(filename)
+        order_file.close()
+        
+    write_order_details_to_json(filename)
 
 
 def move_files_to_history(source_dir, dest_dir):
@@ -86,3 +102,4 @@ def write_order_details_to_json(filepath):
         json.dump(transactions, outfile)
 
 # write_order_details_to_json("../resources/crossover_strategy")
+

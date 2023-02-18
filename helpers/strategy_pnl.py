@@ -15,7 +15,11 @@ api = getApi()
 
 
 def realized_profit_df_strategy():
-    df = pd.read_json(r'E:/Quanturf/Trade_board/resources/transaction.json')
+    
+    with open('E:/Quanturf/Trade_board/resources/transaction.json') as json_data:
+        data = json.load(json_data)
+    df = pd.json_normalize(data,record_path=['transaction'])
+
     result_df = pd.DataFrame(columns = ['Qty','price','symbol','transaction_time','order_id'])
     order_id_list = []
     qty_list = []
@@ -24,7 +28,7 @@ def realized_profit_df_strategy():
     transaction_time_list = []
     type_list = []
 
-    for obj in df['transaction']:
+    for index,obj in df.iterrows():
         order_id_list.append(obj["order ID"])
         qty_list.append(obj["Qty"])
         price_list.append(obj["Price"])
@@ -33,12 +37,12 @@ def realized_profit_df_strategy():
         type_list.append(obj["Type"])
     
     result_df = pd.DataFrame({
-			'order_id':order_id_list,
-			'Qty': qty_list, 
-			'Price': price_list, 
-			'Symbol': symbol_list, 
-			'Transaction_time': transaction_time_list, 
-			'Type': type_list})
+            'order_id':order_id_list,
+            'Qty': qty_list, 
+            'Price': price_list, 
+            'Symbol': symbol_list, 
+            'Transaction_time': transaction_time_list, 
+            'Type': type_list})
     df_buy = result_df[result_df.Type == 'buy']
 
     df_sell = result_df[result_df.Type == 'sell']
@@ -57,38 +61,46 @@ def realized_profit_df_strategy():
         sell = testing.loc[testing.Symbol == sym] 
 
         obs = [] 
-        for i, row in sell.iterrows(): 
+        for i, row in sell.iterrows():
             output_dict = {}
             if i not in obs:
                 out = buy.loc[(buy.Transaction_time < row.Transaction_time)]
                 idx = [j for j in out.index if j not in obs]
-                out = out.loc[idx]
+                if idx != []:
+                    out = out.loc[idx]
+                else:
+                    out=out.loc[obs]
                 output_dict = {
-								'Symbol': sym, 
-								'selling_qty': int(row.Qty),
-								'Avg_selling_Price': row.Price,
-								'Avg_buying_cost': round(out.groupby('Symbol').Price.mean()[0],2),
-								'Sell_time': row.Transaction_time,
-								'Profit_per_unit': round(row.Price - out.groupby('Symbol').Price.mean()[0],2),
-								'Total Profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * int(row.Qty),2),
-								'Winning_bet?': True if round(row.Price - out.groupby('Symbol').Price.mean()[0],2) > 0 else False}
+                                'Symbol': sym, 
+                                'selling_qty': int(row.Qty),
+                                'Avg_selling_Price': row.Price,
+                                'Avg_buying_cost': round(out.groupby('Symbol').Price.mean()[0],2),
+                                'Sell_time': row.Transaction_time,
+                                'Profit_per_unit': round(row.Price - out.groupby('Symbol').Price.mean()[0],2),
+                                'Total Profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * int(row.Qty),2),
+                                'Winning_bet?': True if round(row.Price - out.groupby('Symbol').Price.mean()[0],2) > 0 else False}
                 output_frame.append(output_dict)
-					
+
                 if len(idx) > 1:
                     for ix in idx:
                         obs.append(ix)
-                else:
-                    obs.append(idx[0])
-    transaction_json = json.dumps(output_frame, indent=4)
-    return transaction_json
+
+    output_frame #convert it in json format
+    json_output = json.dumps(output_frame,indent=4)
+    # print(json_output)
+    return output_frame
+    
 
 def unrealised_profit_df_strategy():
-    df = pd.read_json(r'E:/Quanturf/Trade_board/resources/transaction.json')
+    with open('E:/Quanturf/Trade_board/resources/transaction.json') as json_data:
+        data = json.load(json_data)
+    df = pd.json_normalize(data,record_path=['transaction'])
 
     sell_order_list=[]
     buy_order_list=[]    
 
-    for obj in df:
+    for index,obj in df.iterrows():
+        print(obj)
         if obj.side == "sell":
             sell_order_list.append({
                 "Symbol": obj["Symbol"],
@@ -111,16 +123,17 @@ def unrealised_profit_df_strategy():
             })
     for sell_order in reversed(sell_order_list):
         curr_sell_order_symbol = sell_order["Symbol"]
-        curr_sell_order_qty = sell_order["Qty"]
+        curr_sell_order_qty = int(sell_order["Qty"])
         curr_sell_order_transaction_time = sell_order["Time"]
 
         buy_order_index_that_are_closed = []
         for index, buy_order in reversed(list(enumerate(buy_order_list))):
-            curr_buy_order_qty = buy_order["Qty"]
+            curr_buy_order_qty = int(buy_order["Qty"])
             if curr_sell_order_qty == 0:
                 break
             if buy_order["Symbol"] == curr_sell_order_symbol and buy_order["Time"] < curr_sell_order_transaction_time:
                 if curr_buy_order_qty <= curr_sell_order_qty:
+                    
                     curr_sell_order_qty = curr_sell_order_qty - curr_buy_order_qty
                     buy_order_index_that_are_closed.append(index)
                 elif curr_buy_order_qty > curr_sell_order_qty:
@@ -139,18 +152,17 @@ def unrealised_profit_df_strategy():
     
     for res in buy_order_list:
         output_dict = {}
-        current_price = current_price_dict[(res["Symbol"]).replace("/", "")]
-        print(current_price)
+        current_price = float(current_price_dict[(res["Symbol"]).replace("/", "")])
         output_dict["Symbol"]=res["Symbol"]
         output_dict["Qty"]=res["Qty"]
         output_dict["Price"]=res["price"]
         output_dict["Transaction Time"]=res["Time"]
-        output_dict["Urealized Profit"]=round(current_price-res["price"], 2)
-        output_dict["Total Unrealized Profit"]=round(res["Qty"]*round(current_price-res["price"], 2),2)
+        output_dict["Urealized Profit"]=round(current_price-float(res["price"]), 2)
+        output_dict["Total Unrealized Profit"]=round(float(res["Qty"])*round(current_price-float(res["price"]), 2),2)
         output_frame.append(output_dict)
         
-    transaction_json = json.dumps(output_frame, indent=4)
-    return transaction_json
+    # transaction_json = json.dumps(output_frame, indent=4)
+    return output_frame
 
 def get_pnl_df_strategy(open_positions:list, close_positions:list):
      
@@ -221,7 +233,9 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
     df = df.fillna(0)
     df['total_pnl'] = df['realized_pnl'] + df['unrealized_pnl']
      
-    return df.to_json()
+    return df.to_json(indent=4)
 
 
-print(realized_profit_df_strategy())
+print(get_pnl_df_strategy(unrealised_profit_df_strategy(),realized_profit_df_strategy()))
+
+

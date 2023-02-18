@@ -75,7 +75,7 @@ class realizedProfitDfDtrategy(Resource):
             
 class getpnldfstrategy(Resource):
     def getPnlStrategy(self):
-        return get_pnl_df_strategy()
+        return get_pnl_df_strategy(unrealised_profit_df_strategy(),realized_profit_df_strategy())
     
     def post(self):
         try:
