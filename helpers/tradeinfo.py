@@ -100,7 +100,6 @@ def live_trading(symbol, strategy_func=crossover_strategy,q=None):
             # print("Holding for now")
             # trade_info.update_trade("symbol","nothing here", "qty", "api.get_last_trade(symbol).price")
             time.sleep(1)
-            continue
         time.sleep(10)
 
 def run_processes(symbol,strategy_func=crossover_strategy):
