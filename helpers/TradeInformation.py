@@ -81,6 +81,6 @@ def get_all_positions(apil = api):
     
     return(positions_json)
 
-print(api.get_order("983e339e-e5e2-4437-beac-a89a70a13cde"))
+# print(api.get_order("983e339e-e5e2-4437-beac-a89a70a13cde"))
     
     

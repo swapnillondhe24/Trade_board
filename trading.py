@@ -91,7 +91,7 @@ class getpnldfstrategy(Resource):
 # if __name__ == "__main__":
 #     app.run(debug=True)
         
-api.add_resource(run_live_strategy, '/runlivestrategy/')
+# api.add_resource(run_live_strategy, '/runlivestrategy/')
 api.add_resource(getPositions, '/getPositions/')
 api.add_resource(getpnldfstrategy, '/getpnlstrategy/')
 api.add_resource(realizedProfitDfDtrategy, '/getrealizedpnl/')

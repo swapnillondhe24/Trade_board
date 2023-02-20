@@ -34,25 +34,12 @@ def start_dashboard():
     except:
         subprocess.run("npm start",cwd=".\dashboard\quanturf_tradeboard",shell=True)
 
+def start_backend():
+    try:
+        subprocess.run("python trading.py",cwd="../",shell=True)
+    except:
+        subprocess.run("python trading.py",cwd="./",shell=True)
 
-def crossover_strategy(data):
-    short_window = 50
-    long_window = 100
-
-    signals = pd.DataFrame(index=data.index)
-    signals['signal'] = 0.0
-
-    signals['short_mavg'] = data['close'].rolling(window=short_window, min_periods=1, center=False).mean()
-    signals['long_mavg'] = data['close'].rolling(window=long_window, min_periods=1, center=False).mean()
-
-    signals['signal'][short_window:] = np.where(signals['short_mavg'][short_window:] > signals['long_mavg'][short_window:], 1.0, 0.0)   
-    signals['positions'] = signals['signal'].diff()
-
-    signals['signal'] = np.where(signals['signal'] == 0, 0.0, signals['signal'])
-    signals['signal'] = np.where(signals['signal'] == 1, 1.0, signals['signal'])
-    signals['signal'] = np.where(signals['positions'] == 0, 0.5, signals['signal'])
-
-    return signals
 
 
 
@@ -71,16 +58,14 @@ def submit_order_with_strategy(symbol, qty, side, type, time_in_force, strategy)
 
 
 
-def live_trading(symbol, strategy_func=crossover_strategy,q=None):
-    bar_timeframe = '1Min'
+def live_trading(symbol, signals,qty = 100,q=None):
+    
     while True:
-        barset = api.get_bars(symbol, bar_timeframe, limit=200, adjustment='raw').df
-        data = barset
-        signals = strategy_func(data)
+        signals
         # print(signals)
         signal = signals['signal'][-1]
         
-        qty = 100
+        
         # signal = 0.0
         if signal == 1.0:
         # if True:
@@ -102,22 +87,29 @@ def live_trading(symbol, strategy_func=crossover_strategy,q=None):
             time.sleep(1)
         time.sleep(10)
 
-def run_processes(symbol,strategy_func=crossover_strategy):
+
+def run_processes(symbol,strategy_func):
     # print("Here")
     trade_results = multiprocessing.Queue()
     
     dashboard_process = Process(target=start_dashboard)
+    
+    backend_process = Process(target=start_backend)
+    
     trading_process = Process(target=live_trading, args=(symbol, strategy_func, trade_results))
 
+    
+    backend_process.start()
+    time.sleep(10)    
     dashboard_process.start()
     time.sleep(10)
     trading_process.start()
 
-    while True:
-        # print("running")
-        trade_result = trade_results.get()
-        yield trade_result
-        time.sleep(2)
+    # while True:
+    #     # print("running")
+    #     trade_result = trade_results.get()
+    #     yield trade_result
+    #     time.sleep(2)
 
 
 # print(live_trading("AAPL"))

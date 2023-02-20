@@ -72,12 +72,12 @@ def realized_profit_df_strategy():
                     out=out.loc[obs]
                 output_dict = {
                                 'Symbol': sym, 
-                                'selling_qty': int(row.Qty),
+                                'selling_qty': float(row.Qty),
                                 'Avg_selling_Price': row.Price,
                                 'Avg_buying_cost': round(out.groupby('Symbol').Price.mean()[0],2),
                                 'Sell_time': row.Transaction_time,
                                 'Profit_per_unit': round(row.Price - out.groupby('Symbol').Price.mean()[0],2),
-                                'Total Profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * int(row.Qty),2),
+                                'Total Profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * float(row.Qty),2),
                                 'Winning_bet?': True if round(row.Price - out.groupby('Symbol').Price.mean()[0],2) > 0 else False}
                 output_frame.append(output_dict)
 
@@ -100,7 +100,7 @@ def unrealised_profit_df_strategy():
     buy_order_list=[]    
 
     for index,obj in df.iterrows():
-        print(obj)
+        # print(obj)
         if obj.side == "sell":
             sell_order_list.append({
                 "Symbol": obj["Symbol"],
@@ -123,12 +123,12 @@ def unrealised_profit_df_strategy():
             })
     for sell_order in reversed(sell_order_list):
         curr_sell_order_symbol = sell_order["Symbol"]
-        curr_sell_order_qty = int(sell_order["Qty"])
+        curr_sell_order_qty = float(sell_order["Qty"])
         curr_sell_order_transaction_time = sell_order["Time"]
 
         buy_order_index_that_are_closed = []
         for index, buy_order in reversed(list(enumerate(buy_order_list))):
-            curr_buy_order_qty = int(buy_order["Qty"])
+            curr_buy_order_qty = float(buy_order["Qty"])
             if curr_sell_order_qty == 0:
                 break
             if buy_order["Symbol"] == curr_sell_order_symbol and buy_order["Time"] < curr_sell_order_transaction_time:
@@ -161,7 +161,7 @@ def unrealised_profit_df_strategy():
         output_dict["Total Unrealized Profit"]=round(float(res["Qty"])*round(current_price-float(res["price"]), 2),2)
         output_frame.append(output_dict)
         
-    # transaction_json = json.dumps(output_frame, indent=4)
+    transaction_json = json.dumps(output_frame, indent=4)
     return output_frame
 
 def get_pnl_df_strategy(open_positions:list, close_positions:list):
@@ -191,6 +191,8 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
         'unrealized_profit':unrealized_profit_list,
         'total_unrealized_profit':total_unrealized_profit_list,
     })
+    open_df['price'] = open_df['price'].astype(float)
+    open_df['Qty'] = open_df['Qty'].astype(float)
     
     open_df['date'] =  pd.to_datetime(open_df['transaction_time'], errors='coerce')
     unrealized_pnl_df = open_df.groupby('date')['total_unrealized_profit'].sum().reset_index()
@@ -205,6 +207,7 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
     Sell_time_list=[]
     Profit_per_unit_list=[]
     Total_Profit_list=[]
+    winning_list=[]
 
     for obj in close_positions:
         symbol_list.append(obj['Symbol'])
@@ -214,6 +217,7 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
         Sell_time_list.append(obj['Sell_time'])
         Profit_per_unit_list.append(obj['Profit_per_unit'])
         Total_Profit_list.append(obj['Total Profit'])
+        winning_list.append(obj['Winning_bet?'])
     
     close_df=pd.DataFrame({
         'Symbol':symbol_list,
@@ -222,20 +226,50 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
         'Avg_buying_cost':Avg_buying_cost_list,
         'Sell_time':Sell_time_list,
         'Profit_per_unit':Profit_per_unit_list,
-        'Total Profit':Total_Profit_list
+        'Total Profit':Total_Profit_list,
+        'winning_bet':winning_list
     })
-
+    close_df['Avg_buying_cost'] = close_df['Avg_buying_cost'].astype('float')
     close_df['date'] = pd.to_datetime(close_df['Sell_time'], errors='coerce')
     realized_pnl_df = close_df.groupby('date')['Total Profit'].sum().reset_index()
 
     df = pd.merge(unrealized_pnl_df, realized_pnl_df, on='date', how='outer')
+    df['date'] = df['date'].dt.strftime('%Y-%m-%d %H:%M:%S')
     df = df.rename(columns={'Total Profit': 'realized_pnl', 'total_unrealized_profit': 'unrealized_pnl'})
     df = df.fillna(0)
     df['total_pnl'] = df['realized_pnl'] + df['unrealized_pnl']
-     
-    return df.to_json(indent=4)
+    
+    Total_Profit = df['realized_pnl'].sum() + df['unrealized_pnl'].sum()
+    
+    # print(round(close_df['Avg_buying_cost'].sum()*close_df['selling_qty'].sum(),2))
+    # print(round(open_df['price'].sum()*open_df['Qty'].sum(),2))
+    # initial_investment = close_df['Avg_buying_cost'].sum() + open_df['price'].sum()
+    initial_investment = round(close_df['Avg_buying_cost'].sum()*close_df['selling_qty'].sum() + open_df['price'].sum()*open_df['Qty'].sum(),4)
+    
+    return_percentage = round((Total_Profit/initial_investment)*100, 4)
+    
+    win_rate = (close_df['winning_bet'].sum()/close_df['winning_bet'].count())*100
+    
+    
+    result_dict = {
+        'transaction': df.to_dict('records'),
+        'total_profit_all_trades': Total_Profit,
+        'total_realized_profit': df['realized_pnl'].sum(),
+        'total_unrealized_profit': df['unrealized_pnl'].sum(),
+        'return_percentage': return_percentage,
+        'total_capital_invested': initial_investment,
+        'available_capital': api.get_account().cash,
+        'win_rate': win_rate,
+        
+    }
+    
+    return json.dumps(result_dict, indent=4)
 
 
-print(get_pnl_df_strategy(unrealised_profit_df_strategy(),realized_profit_df_strategy()))
-
-
+if __name__ =="__main__":
+    # rp = realized_profit_df_strategy()
+    # print(rp)
+    # up = unrealised_profit_df_strategy()
+    # print(up)
+    js = get_pnl_df_strategy(unrealised_profit_df_strategy(),realized_profit_df_strategy())
+    print(js)
