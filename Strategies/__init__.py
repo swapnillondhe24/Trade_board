@@ -1,1 +1,0 @@
-__path__ = ['../../Trade_board','../helpers','../resources','./Stratigies']

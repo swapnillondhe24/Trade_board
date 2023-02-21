@@ -30,15 +30,19 @@ trade_info = TradeInformation()
 
 def start_dashboard():
     try:
-        subprocess.run("npm start",cwd="..\dashboard\quanturf_tradeboard",shell=True)
-    except:
-        subprocess.run("npm start",cwd=".\dashboard\quanturf_tradeboard",shell=True)
+        subprocess.run("npm start",cwd=".\Trade_board\dashboard\quanturf_tradeboard",shell=True)
+    except ImportError:
+        subprocess.run("npm start",cwd=".\Trade_board\dashboard\quanturf_tradeboard",shell=True)
+    except KeyboardInterrupt:
+        exit(0)
 
 def start_backend():
     try:
-        subprocess.run("python trading.py",cwd="../",shell=True)
-    except:
-        subprocess.run("python trading.py",cwd="./",shell=True)
+        subprocess.run("python trading.py",cwd="./Trade_board",shell=True)
+    except ImportError:
+        subprocess.run("python trading.py",cwd="./Trade_board",shell=True)
+    except KeyboardInterrupt:
+        exit(0)
 
 
 
@@ -58,7 +62,7 @@ def submit_order_with_strategy(symbol, qty, side, type, time_in_force, strategy)
 
 
 
-def live_trading(symbol, signals,qty = 100,q=None):
+def live_trading(symbol, signals,strategy_func,qty = 100,q=None):
     
     while True:
         signals
@@ -88,23 +92,36 @@ def live_trading(symbol, signals,qty = 100,q=None):
         time.sleep(10)
 
 
-def run_processes(symbol,strategy_func):
+def start_trading(symbol, signals,strategy_func,qty = 100):
     # print("Here")
-    trade_results = multiprocessing.Queue()
-    
-    dashboard_process = Process(target=start_dashboard)
-    
-    backend_process = Process(target=start_backend)
-    
-    trading_process = Process(target=live_trading, args=(symbol, strategy_func, trade_results))
+    try:
+        trade_results = multiprocessing.Queue()
 
-    
-    backend_process.start()
-    time.sleep(10)    
-    dashboard_process.start()
-    time.sleep(10)
-    trading_process.start()
+        dashboard_process = Process(target=start_dashboard)
 
+        backend_process = Process(target=start_backend)
+
+        trading_process = Process(target=live_trading, args=(symbol, signals,strategy_func,qty, trade_results))
+
+
+        trading_process.start()
+        print("running trading")
+        time.sleep(5)
+        dashboard_process.start()
+        time.sleep(10)    
+        print("running dashboard")
+        backend_process.start()
+        time.sleep(10)
+
+        backend_process.join()
+        dashboard_process.join()
+        trading_process.join()
+    except KeyboardInterrupt:
+        dashboard_process.kill()
+        backend_process.kill()
+        trading_process.kill()
+        
+        print("bye bye")
     # while True:
     #     # print("running")
     #     trade_result = trade_results.get()

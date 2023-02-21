@@ -21,7 +21,7 @@ def write_order_to_csv(order, filename):
     headers = ['order_id', 'symbol', 'qty', 'side', 'type', 'time_in_force', 'submitted_at', 'filled_at', 'filled_qty', 'filled_avg_price']
     file_exists = os.path.isfile(filename)
     
-    with open(filename, mode='a', newline='') as order_file:
+    with open(filename, mode='w', newline='') as order_file:
         writer = csv.DictWriter(order_file, fieldnames=headers)
         
         if not file_exists:

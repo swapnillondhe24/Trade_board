@@ -1,10 +1,42 @@
-import pandas as pd
-import numpy as np
-# from helpers.utils import getApi
-from ..helpers.tradeinfo import live_trading
+import sys
+sys.path.append('E:\Quanturf\Trade_board\helpers\\')
+import os
 
+import alpaca_trade_api as tradeapi
+import numpy as np
+import pandas as pd
+from dotenv import load_dotenv
+
+# tradeinfo = importlib.import_module('.helpers.tradeinfo', package=".Trade_board")
+# path = util.find_spec('helpers.tradeinfo',package='helpers')
+# print(path.loader)
+# try:
+#     from helpers.tradeinfo import live_trading
+# except:
+from ..helpers.tradeinfo import start_trading
+from ..helpers.utils import getApi
+# import importlib
+# from importlib import util
+
+
+
+# **********************************************
+
+def getApi():
+    load_dotenv()
+
+    API_KEY_ID = os.getenv('API_KEY_ID')
+    SECRET_ACCESS_KEY = os.getenv('SECRET_ACCESS_KEY')
+    
+    api = tradeapi.REST(API_KEY_ID, SECRET_ACCESS_KEY, base_url='https://paper-api.alpaca.markets' ,api_version='v2')
+    
+    return api
 
 api = getApi()
+
+
+
+# ******************************************
 
 def crossover_strategy():
     bar_timeframe = '1Min'
@@ -29,4 +61,7 @@ def crossover_strategy():
     signals['signal'] = np.where(signals['signal'] == 1, 1.0, signals['signal'])
     signals['signal'] = np.where(signals['positions'] == 0, 0.5, signals['signal'])
 
-    live_trading(symbol, signals ,50)
+    start_trading(symbol, signals ,'crossover_strategy',50)
+
+if __name__=="__main__":
+    crossover_strategy()

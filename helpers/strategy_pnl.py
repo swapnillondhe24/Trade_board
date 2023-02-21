@@ -71,14 +71,14 @@ def realized_profit_df_strategy():
                 else:
                     out=out.loc[obs]
                 output_dict = {
-                                'Symbol': sym, 
+                                'symbol': sym, 
                                 'selling_qty': float(row.Qty),
-                                'Avg_selling_Price': row.Price,
-                                'Avg_buying_cost': round(out.groupby('Symbol').Price.mean()[0],2),
-                                'Sell_time': row.Transaction_time,
-                                'Profit_per_unit': round(row.Price - out.groupby('Symbol').Price.mean()[0],2),
-                                'Total Profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * float(row.Qty),2),
-                                'Winning_bet?': True if round(row.Price - out.groupby('Symbol').Price.mean()[0],2) > 0 else False}
+                                'avg_selling_Price': row.Price,
+                                'avg_buying_cost': round(out.groupby('Symbol').Price.mean()[0],2),
+                                'sell_time': row.Transaction_time,
+                                'profit_per_unit': round(row.Price - out.groupby('Symbol').Price.mean()[0],2),
+                                'total_profit': round((row.Price - out.groupby('Symbol').Price.mean())[0] * float(row.Qty),2),
+                                'Winning_bet': True if round(row.Price - out.groupby('Symbol').Price.mean()[0],2) > 0 else False}
                 output_frame.append(output_dict)
 
                 if len(idx) > 1:
@@ -153,15 +153,15 @@ def unrealised_profit_df_strategy():
     for res in buy_order_list:
         output_dict = {}
         current_price = float(current_price_dict[(res["Symbol"]).replace("/", "")])
-        output_dict["Symbol"]=res["Symbol"]
-        output_dict["Qty"]=res["Qty"]
-        output_dict["Price"]=res["price"]
-        output_dict["Transaction Time"]=res["Time"]
-        output_dict["Urealized Profit"]=round(current_price-float(res["price"]), 2)
-        output_dict["Total Unrealized Profit"]=round(float(res["Qty"])*round(current_price-float(res["price"]), 2),2)
+        output_dict["symbol"]=res["Symbol"]
+        output_dict["qty"]=res["Qty"]
+        output_dict["price"]=res["price"]
+        output_dict["transaction_time"]=res["Time"]
+        output_dict["urealized_profit"]=round(current_price-float(res["price"]), 2)
+        output_dict["total_unrealized_profit"]=round(float(res["Qty"])*round(current_price-float(res["price"]), 2),2)
         output_frame.append(output_dict)
         
-    transaction_json = json.dumps(output_frame, indent=4)
+    # transaction_json = json.dumps(output_frame, indent=4)
     return output_frame
 
 def get_pnl_df_strategy(open_positions:list, close_positions:list):
@@ -176,12 +176,12 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
     total_unrealized_profit_list=[]
 
     for obj in open_positions:
-        qty_list.append(obj["Qty"])
-        price_list.append(obj["Price"])
-        symbol_list.append(obj["Symbol"])
-        transaction_time_list.append(obj["Transaction Time"])
-        unrealized_profit_list.append(obj["Urealized Profit"])
-        total_unrealized_profit_list.append(obj["Total Unrealized Profit"])
+        qty_list.append(obj["symbol"])
+        price_list.append(obj["qty"])
+        symbol_list.append(obj["price"])
+        transaction_time_list.append(obj["transaction_time"])
+        unrealized_profit_list.append(obj["urealized_profit"])
+        total_unrealized_profit_list.append(obj["total_unrealized_profit"])
     
     open_df = pd.DataFrame({
         'Qty':qty_list,
@@ -210,14 +210,14 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
     winning_list=[]
 
     for obj in close_positions:
-        symbol_list.append(obj['Symbol'])
+        symbol_list.append(obj['symbol'])
         selling_qty_list.append(obj['selling_qty'])
-        Avg_selling_Price_list.append(obj['Avg_selling_Price'])
-        Avg_buying_cost_list.append(obj['Avg_buying_cost'])
-        Sell_time_list.append(obj['Sell_time'])
-        Profit_per_unit_list.append(obj['Profit_per_unit'])
-        Total_Profit_list.append(obj['Total Profit'])
-        winning_list.append(obj['Winning_bet?'])
+        Avg_selling_Price_list.append(obj['avg_selling_Price'])
+        Avg_buying_cost_list.append(obj['avg_buying_cost'])
+        Sell_time_list.append(obj['sell_time'])
+        Profit_per_unit_list.append(obj['profit_per_unit'])
+        Total_Profit_list.append(obj['total_profit'])
+        winning_list.append(obj['Winning_bet'])
     
     close_df=pd.DataFrame({
         'Symbol':symbol_list,
