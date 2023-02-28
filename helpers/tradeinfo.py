@@ -102,17 +102,19 @@ def start_trading(strategy_func):
 
         backend_process = Process(target=start_backend)
 
-        trading_process = Process(target=strategy_func())
 
 
-        trading_process.start()
-        print("running trading")
-        time.sleep(5)
         dashboard_process.start()
         time.sleep(10)    
         print("running dashboard")
         backend_process.start()
         time.sleep(10)
+        
+        
+        trading_process = Process(target=strategy_func())
+        trading_process.start()
+        print("running trading")
+        time.sleep(5)
 
         backend_process.join()
         dashboard_process.join()
