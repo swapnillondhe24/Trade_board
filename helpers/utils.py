@@ -17,7 +17,7 @@ def getApi():
 
 
 
-def write_order_to_csv(order, filename):
+def write_order_to_csv(order, filename="../resources/orders.csv"):
     headers = ['order_id', 'symbol', 'qty', 'side', 'type', 'time_in_force', 'submitted_at', 'filled_at', 'filled_qty', 'filled_avg_price']
     file_exists = os.path.isfile(filename)
     

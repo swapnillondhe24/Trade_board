@@ -176,9 +176,9 @@ def get_pnl_df_strategy(open_positions:list, close_positions:list):
     total_unrealized_profit_list=[]
 
     for obj in open_positions:
-        qty_list.append(obj["symbol"])
-        price_list.append(obj["qty"])
-        symbol_list.append(obj["price"])
+        qty_list.append(obj["qty"])
+        price_list.append(obj["price"])
+        symbol_list.append(obj["symbol"])
         transaction_time_list.append(obj["transaction_time"])
         unrealized_profit_list.append(obj["urealized_profit"])
         total_unrealized_profit_list.append(obj["total_unrealized_profit"])
