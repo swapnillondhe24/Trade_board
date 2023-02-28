@@ -7,7 +7,8 @@ from datetime import datetime
 from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
 import os
-from ..helpers.utils import write_order_to_csv,
+from ..helpers.utils import write_order_to_csv
+from ..helpers.tradeinfo import start_trading
 
 
 # def getApi():
@@ -133,4 +134,5 @@ if __name__ == '__main__':
         cerebro.broker.setcash(100000.0)
 
     print('Starting Portfolio Value: {}'.format(cerebro.broker.getvalue()))
-    cerebro.run()
+    
+    start_trading(cerebro.run)
