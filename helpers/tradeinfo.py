@@ -11,14 +11,14 @@ import subprocess
 
 try:
     from TradeInformation import TradeInformation
-except:
-    from helpers.TradeInformation import TradeInformation
+except Exception as e: 
+    from ..helpers.TradeInformation import TradeInformation
     
 
 try:
     from utils import getApi, write_order_to_csv
 except:
-    from  helpers.utils import getApi,write_order_to_csv
+    from  ..helpers.utils import getApi,write_order_to_csv
 
 api = getApi()
 

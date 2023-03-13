@@ -1,7 +1,7 @@
 try:
     from utils import getApi
 except:
-    from helpers.utils import getApi
+    from ..helpers.utils import getApi
 # from utils import getApi
 
 api = getApi()
