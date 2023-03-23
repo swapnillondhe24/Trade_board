@@ -1,7 +1,11 @@
 try:
     from utils import getApi
 except:
-    from ..helpers.utils import getApi
+    pass
+try:
+    from helpers.utils import getApi
+except:
+    from Trade_board.helpers.utils import getApi
 # from utils import getApi
 
 api = getApi()
@@ -75,12 +79,21 @@ class TradeInformation:
 
 import json
 def get_all_positions(apil = api):
-    positions = apil.list_positions()
+    positions = apil.get_activities(page_size=1)
+    print(positions[0].order_id)
     positions_list = [pos.__dict__ for pos in positions]
-    positions_json = json.dumps(positions_list)
-    
+    positions_json = json.dumps(positions_list,indent=4)
+    # write_to_log(positions_json)
     return(positions_json)
 
 # print(api.get_order("983e339e-e5e2-4437-beac-a89a70a13cde"))
+
+def get_latest_order(apil = getApi()):
+    positions = apil.get_activities(page_size=1)
+    return apil.get_order(positions[0].order_id)
+
+
+# if __name__ == "__main__":
+#     print(get_latest_order())
     
     

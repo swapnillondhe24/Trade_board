@@ -1,0 +1,3 @@
+[submodule "dashboard/quanturf_tradeboard"]
+	path = dashboard/quanturf_tradeboard
+	url = https://github.com/shreyashghadge11/quanturf_tradeboard

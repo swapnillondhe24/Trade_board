@@ -1,0 +1,1516 @@
+[2023-03-21 00:34:43] placing trade for GOOG. target size: 5.0
+[2023-03-21 00:35:15] Ref: 2
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x12ba1db50>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:36:45] placing trade for GOOG. target size: 5.0
+[2023-03-21 00:37:28] Ref: 2
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x119f28a30>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:38:57] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x12a0fcaf0>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:38:59] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x12a0fcaf0>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:38:59] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 4
+Status: Completed
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x12a0fcaf0>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: False
+[2023-03-21 00:39:00] placing trade for GOOG. target size: 5.0
+[2023-03-21 00:42:22] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:23] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:24] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 4
+Status: Completed
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: False
+[2023-03-21 00:42:25] placing trade for GOOG. target size: 5.0
+[2023-03-21 00:42:26] error submitting order code: 40310000. msg: insufficient qty available for order (requested: 9, available: 5)
+[2023-03-21 00:42:26] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:26] Ref: 2
+OrdType: 1
+OrdType: Sell
+Status: 8
+Status: Rejected
+Size: -9.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: False
+[2023-03-21 00:42:27] Ref: 1
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:29] Ref: 3
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:29] Ref: 3
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:30] Ref: 3
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:42:31] Ref: 3
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:32] Ref: 3
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -5.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:43] Ref: 4
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:43] Ref: 4
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:45] Ref: 4
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:42:46] Ref: 4
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:46] Ref: 4
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:48] error submitting order code: 40310000. msg: insufficient qty available for order (requested: 3, available: 1)
+[2023-03-21 00:42:48] Ref: 5
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -4.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:48] Ref: 5
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -4.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:49] Ref: 5
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -4.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:42:50] Ref: 5
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -4.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:51] Ref: 5
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -4.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:52] placing trade for GOOG. target size: 0.0
+[2023-03-21 00:42:53] Ref: 6
+OrdType: 1
+OrdType: Sell
+Status: 8
+Status: Rejected
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: False
+[2023-03-21 00:42:54] Ref: 7
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:55] Ref: 7
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:42:55] Ref: 7
+OrdType: 1
+OrdType: Sell
+Status: 1
+Status: Submitted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:42:56] Ref: 7
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:49] Ref: 8
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:50] Ref: 8
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:50] Ref: 8
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:43:52] Ref: 8
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:52] Ref: 8
+OrdType: 0
+OrdType: Buy
+Status: 4
+Status: Completed
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: False
+[2023-03-21 00:43:53] Ref: 9
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:54] Ref: 9
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:54] Ref: 9
+OrdType: 1
+OrdType: Sell
+Status: 1
+Status: Submitted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:43:55] Ref: 9
+OrdType: 1
+OrdType: Sell
+Status: 4
+Status: Completed
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: False
+[2023-03-21 00:43:56] Ref: 9
+OrdType: 1
+OrdType: Sell
+Status: 4
+Status: Completed
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: False
+[2023-03-21 00:43:57] placing trade for GOOG. target size: 5.0
+[2023-03-21 00:43:58] Ref: 10
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:58] Ref: 10
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:43:59] Ref: 10
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:44:00] Ref: 10
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:01] Ref: 10
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:02] Ref: 11
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:03] Ref: 11
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:03] Ref: 11
+OrdType: 1
+OrdType: Sell
+Status: 4
+Status: Completed
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: False
+[2023-03-21 00:44:04] Ref: 11
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:05] Ref: 11
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:06] placing trade for GOOG. target size: 0.0
+[2023-03-21 00:44:07] Ref: 12
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:08] Ref: 12
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:44:08] Ref: 12
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:44:09] Ref: 12
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:20] Ref: 13
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:20] Ref: 13
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:22] Ref: 13
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:45:22] Ref: 13
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:23] Ref: 13
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 5
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:24] Ref: 14
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:24] Ref: 14
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:25] Ref: 14
+OrdType: 1
+OrdType: Sell
+Status: 4
+Status: Completed
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: False
+[2023-03-21 00:45:26] Ref: 14
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:27] placing trade for GOOG. target size: 3.0
+[2023-03-21 00:45:28] Ref: 15
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+
+
+
+[2023-03-21 00:45:28] Ref: 14
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+
+
+
+[2023-03-21 00:45:29] Ref: 15
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:30] Ref: 15
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:30] Ref: 15
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:31] Ref: 15
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -3.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:32] placing trade for GOOG. target size: 0.0
+[2023-03-21 00:45:33] Ref: 16
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:33] Ref: 16
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:34] Ref: 16
+OrdType: 1
+OrdType: Sell
+Status: 3
+Status: Partial
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:35] Ref: 16
+OrdType: 1
+OrdType: Sell
+Status: 1
+Status: Submitted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:45:35] Ref: 16
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:36] placing trade for GOOG. target size: -1.0
+[2023-03-21 00:45:37] Ref: 17
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:38] Ref: 17
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:38] Ref: 17
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:45:39] Ref: 17
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:40] Ref: 17
+OrdType: 0
+OrdType: Buy
+Status: 3
+Status: Partial
+Size: 2.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:40] placing trade for GOOG. target size: 0.0
+[2023-03-21 00:45:41] Ref: 18
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:42] Ref: 18
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:42] Ref: 18
+OrdType: 0
+OrdType: Buy
+Status: 1
+Status: Submitted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:45:43] Ref: 18
+OrdType: 0
+OrdType: Buy
+Status: 2
+Status: Accepted
+Size: 1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:45] Ref: 19
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:46] Ref: 19
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 00:45:47] Ref: 19
+OrdType: 1
+OrdType: Sell
+Status: 1
+Status: Submitted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: <alpaca_backtrader_api.alpacabroker.AlpacaBroker object at 0x136074c40>
+Alive: True
+[2023-03-21 00:45:47] Ref: 19
+OrdType: 1
+OrdType: Sell
+Status: 2
+Status: Accepted
+Size: -1.0
+Price: None
+Price Limit: None
+TrailAmount: None
+TrailPercent: None
+ExecType: 0
+ExecType: Market
+CommInfo: <backtrader.comminfo.CommInfoBase object at 0x135579a90>
+End of Session: 738599.9999999999
+Info: AutoOrderedDict()
+Broker: None
+Alive: True
+[2023-03-21 13:09:36] Request Error

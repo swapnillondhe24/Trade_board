@@ -16,8 +16,12 @@ api = getApi()
 
 def realized_profit_df_strategy():
     
-    with open('E:/Quanturf/Trade_board/resources/transaction.json') as json_data:
-        data = json.load(json_data)
+    try:
+        with open('./Trade_board/resources/transaction.json') as json_data:
+            data = json.load(json_data)
+    except:
+        with open('../Trade_board/resources/transaction.json') as json_data:
+            data = json.load(json_data)
     df = pd.json_normalize(data,record_path=['transaction'])
 
     result_df = pd.DataFrame(columns = ['Qty','price','symbol','transaction_time','order_id'])
@@ -92,8 +96,12 @@ def realized_profit_df_strategy():
     
 
 def unrealised_profit_df_strategy():
-    with open('E:/Quanturf/Trade_board/resources/transaction.json') as json_data:
-        data = json.load(json_data)
+    try:
+        with open('./Trade_board/resources/transaction.json') as json_data:
+            data = json.load(json_data)
+    except:
+        with open('../Trade_board/resources/transaction.json') as json_data:
+            data = json.load(json_data)
     df = pd.json_normalize(data,record_path=['transaction'])
 
     sell_order_list=[]

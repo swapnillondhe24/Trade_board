@@ -3,6 +3,7 @@ import csv
 from dotenv import load_dotenv
 import alpaca_trade_api as tradeapi
 import os
+from datetime import datetime
 
 
 def getApi():
@@ -15,13 +16,41 @@ def getApi():
     
     return api
 
+def getKey():
+    load_dotenv()
+    return os.getenv('API_KEY_ID')
+
+def getSecret():
+    load_dotenv()
+    return os.getenv('SECRET_ACCESS_KEY')
 
 
-def write_order_to_csv(order, filename="../resources/orders.csv"):
+def write_to_log(msg,strategy):
+    now = datetime.now()
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+    with open("./Trade_board/resources/"+strategy +"_logfile.txt", "a") as f:
+        f.write(f"[{timestamp}] {msg}\n")
+
+        
+
+def get_latest_order(apil = getApi()):
+    positions = apil.get_activities(page_size=1)
+    return apil.get_order(positions[0].order_id)
+
+
+
+
+def write_order_to_csv(order, filename="./Trade_board/resources/orders.csv"):
     headers = ['order_id', 'symbol', 'qty', 'side', 'type', 'time_in_force', 'submitted_at', 'filled_at', 'filled_qty', 'filled_avg_price']
-    file_exists = os.path.isfile(filename)
     
-    with open(filename, mode='w', newline='') as order_file:
+
+    order = get_latest_order()
+
+    file_exists = os.path.isfile(filename)
+
+
+    
+    with open(filename, mode='w+', newline='') as order_file:
         writer = csv.DictWriter(order_file, fieldnames=headers)
         
         if not file_exists:
@@ -98,7 +127,7 @@ def write_order_details_to_json(filepath):
     
     
             
-    with open('../resources/transaction.json', 'w') as outfile:
+    with open('./Trade_board/resources/transaction.json', 'a+') as outfile:
         json.dump(transactions, outfile)
 
 # write_order_details_to_json("../resources/crossover_strategy")

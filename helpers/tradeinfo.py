@@ -29,18 +29,20 @@ trade_info = TradeInformation()
 
 
 def start_dashboard():
+    print("Starting Dashboard")
     try:
-        subprocess.run("npm start",cwd=".\Trade_board\dashboard\quanturf_tradeboard",shell=True)
+        subprocess.run("npm start",cwd="./Trade_board/dashboard/quanturf_tradeboard",shell=True)
     except ImportError:
-        subprocess.run("npm start",cwd=".\Trade_board\dashboard\quanturf_tradeboard",shell=True)
+        subprocess.run("npm start",cwd="..\Trade_board\dashboard\quanturf_tradeboard",shell=True)
     except KeyboardInterrupt:
         exit(0)
 
 def start_backend():
+    print("Starting Backend")
     try:
-        subprocess.run("python trading.py",cwd="./Trade_board",shell=True)
+        subprocess.run("python3 trading.py",cwd="./Trade_board",shell=True)
     except ImportError:
-        subprocess.run("python trading.py",cwd="./Trade_board",shell=True)
+        subprocess.run("python3 trading.py",cwd="./Trade_board",shell=True)
     except KeyboardInterrupt:
         exit(0)
 
@@ -92,9 +94,16 @@ def live_trading(symbol, signals,strategy_func,qty = 100,q=None):
         time.sleep(10)
 
 
-def start_trading(strategy_func):
-    multiprocessing.set_start_method('spawn')
-    # print("Here")
+# import cloudpickle as dill
+# def run_trading(cerebro):
+#     func = dill.loads(cerebro)
+#     # func = dill.loads(func)
+#     print("Starting Trading")
+#     func()
+
+def start_trading(run_func):
+    multiprocessing.set_start_method("fork")
+    
     try:
         trade_results = multiprocessing.Queue()
 
@@ -102,39 +111,24 @@ def start_trading(strategy_func):
 
         backend_process = Process(target=start_backend)
 
-
-
         dashboard_process.start()
-        time.sleep(10)    
-        print("running dashboard")
+        time.sleep(5)    
         backend_process.start()
-        time.sleep(10)
+        time.sleep(5)
         
-        
-        trading_process = Process(target=strategy_func())
+        trading_process = Process(target= run_func)
         trading_process.start()
-        print("running trading")
         time.sleep(5)
 
+        trading_process.join()
         backend_process.join()
         dashboard_process.join()
-        trading_process.join()
+
+        # pass function as argument to another funtion
         
     except KeyboardInterrupt:
+        print("Cleaning up....")
+        trading_process.kill()
         dashboard_process.kill()
         backend_process.kill()
-        trading_process.kill()
-        
-        print("bye bye")
-    # while True:
-    #     # print("running")
-    #     trade_result = trade_results.get()
-    #     yield trade_result
-    #     time.sleep(2)
-
-
-# print(live_trading("AAPL"))
-# if __name__ == '__main__':
-#     while True:
-#         gen = run_processes("AAPL")
-#         next(gen)
+        print("Killed and cleaned processes")
